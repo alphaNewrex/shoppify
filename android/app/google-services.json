@@ -1,0 +1,39 @@
+{
+  "project_info": {
+    "project_number": "858983616557",
+    "project_id": "shopping-app-df3df",
+    "storage_bucket": "shopping-app-df3df.appspot.com"
+  },
+  "client": [
+    {
+      "client_info": {
+        "mobilesdk_app_id": "1:858983616557:android:56dbc88a0e14827ec5a8a4",
+        "android_client_info": {
+          "package_name": "com.newrex.shopping_app"
+        }
+      },
+      "oauth_client": [
+        {
+          "client_id": "858983616557-j4kqd7potts4kqjtpl3i32nhiq1a350j.apps.googleusercontent.com",
+          "client_type": 3
+        }
+      ],
+      "api_key": [
+        {
+          "current_key": "AIzaSyD_h95DSEsQhVDLmJ8nBaGspVxEK3RcEMI"
+        }
+      ],
+      "services": {
+        "appinvite_service": {
+          "other_platform_oauth_client": [
+            {
+              "client_id": "858983616557-j4kqd7potts4kqjtpl3i32nhiq1a350j.apps.googleusercontent.com",
+              "client_type": 3
+            }
+          ]
+        }
+      }
+    }
+  ],
+  "configuration_version": "1"
+}
