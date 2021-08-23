@@ -10,7 +10,10 @@ class CartPage extends StatefulWidget {
 class _CartPageState extends State<CartPage> {
   @override
   Widget build(BuildContext context) {
-    var cart = ModalRoute.of(context)!.settings.arguments;
+    var cart = ModalRoute.of(context)!.settings.arguments as List;
+    // print(cart[0]['price']);
+
+    // print(cart.length);
 
     return Scaffold(
       appBar: AppBar(
@@ -26,7 +29,7 @@ class _CartPageState extends State<CartPage> {
             child: Padding(
                 padding: const EdgeInsets.all(16.0),
                 child: ListView.builder(
-                    itemCount: 6,
+                    itemCount: cart.length,
                     itemBuilder: (context, index) {
                       return Card(
                         child: ListTile(
@@ -38,6 +41,9 @@ class _CartPageState extends State<CartPage> {
                                 decoration: BoxDecoration(
                                   color: Colors.blue,
                                   borderRadius: BorderRadius.circular(5),
+                                  // image: DecorationImage(
+                                  //   image: NetworkImage(cart[index]['image']),
+                                  ),
                                   // image: DecorationImage(
                                   //   fit: BoxFit.cover,
                                   //   image:

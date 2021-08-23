@@ -50,6 +50,7 @@ class _ShopPageState extends State<ShopPage> {
         id: products[id]['id'],
         price: (products[id]['price']).toDouble(),
         title: products[id]['title'],
+        image: products[id]['image'],
         quantity: quantity);
 
     setState(() {
@@ -113,78 +114,82 @@ class _ShopPageState extends State<ShopPage> {
           ),
         ],
       ),
-      body: Column(
-        mainAxisAlignment: MainAxisAlignment.start,
-        crossAxisAlignment: CrossAxisAlignment.start,
-        mainAxisSize: MainAxisSize.min,
-        children: [
-          Expanded(
-            child: Padding(
-              padding: const EdgeInsets.all(16.0),
-              child: StaggeredGridView.countBuilder(
-                crossAxisCount: 2,
-                itemCount: products.length,
-                mainAxisSpacing: 16,
-                crossAxisSpacing: 16,
-                itemBuilder: (context, index) {
-                  return Card(
-                    child: Container(
-                      child: Column(
-                        children: [
-                          Padding(
-                            padding: const EdgeInsets.all(10.0),
-                            child: Container(
-                              child: Padding(
-                                padding: const EdgeInsets.all(8.0),
-                                child: Image.network(products[index]['image']),
-                              ),
-                              height: 120,
-                              width: 1000,
-                              decoration: BoxDecoration(
-                                  color: Colors.white,
-                                  borderRadius: BorderRadius.circular(10)),
-                            ),
-                          ),
-                          Text(
-                            '\$${products[index]['price']}',
-                            style: TextStyle(
-                              fontSize: 20,
-                              fontWeight: FontWeight.bold,
-                            ),
-                          ),
-                          Container(
-                            child: Center(
-                              child: RaisedButton.icon(
-                                color: Colors.amberAccent,
-                                onPressed: () {
-                                  _productDescription(context, index);
-                                  // print(index);
-                                  // print(products[index]);
-                                },
-                                icon: FaIcon(
-                                  FontAwesomeIcons.shoppingBasket,
-                                  size: 15,
+      body: products.contains(null)
+          ? circularProgress()
+          : Column(
+              mainAxisAlignment: MainAxisAlignment.start,
+              crossAxisAlignment: CrossAxisAlignment.start,
+              mainAxisSize: MainAxisSize.min,
+              children: [
+                Expanded(
+                  child: Padding(
+                    padding: const EdgeInsets.all(16.0),
+                    child: StaggeredGridView.countBuilder(
+                      crossAxisCount: 2,
+                      itemCount: products.length,
+                      mainAxisSpacing: 16,
+                      crossAxisSpacing: 16,
+                      itemBuilder: (context, index) {
+                        return Card(
+                          child: Container(
+                            child: Column(
+                              children: [
+                                Padding(
+                                  padding: const EdgeInsets.all(10.0),
+                                  child: Container(
+                                    child: Padding(
+                                      padding: const EdgeInsets.all(8.0),
+                                      child: Image.network(
+                                          products[index]['image']),
+                                    ),
+                                    height: 120,
+                                    width: 1000,
+                                    decoration: BoxDecoration(
+                                        color: Colors.white,
+                                        borderRadius:
+                                            BorderRadius.circular(10)),
+                                  ),
                                 ),
-                                label: Text('Add to Cart'),
-                              ),
+                                Text(
+                                  '\$${products[index]['price']}',
+                                  style: TextStyle(
+                                    fontSize: 20,
+                                    fontWeight: FontWeight.bold,
+                                  ),
+                                ),
+                                Container(
+                                  child: Center(
+                                    child: RaisedButton.icon(
+                                      color: Colors.amberAccent,
+                                      onPressed: () {
+                                        _productDescription(context, index);
+                                        // print(index);
+                                        // print(products[index]);
+                                      },
+                                      icon: FaIcon(
+                                        FontAwesomeIcons.shoppingBasket,
+                                        size: 15,
+                                      ),
+                                      label: Text('Add to Cart'),
+                                    ),
+                                  ),
+                                )
+                              ],
                             ),
-                          )
-                        ],
-                      ),
-                      height: 220,
-                      width: 120,
-                      decoration: BoxDecoration(
-                          color: Colors.grey[50],
-                          borderRadius: BorderRadius.circular(10)),
+                            height: 220,
+                            width: 120,
+                            decoration: BoxDecoration(
+                                color: Colors.grey[50],
+                                borderRadius: BorderRadius.circular(10)),
+                          ),
+                        );
+                      },
+                      staggeredTileBuilder: (index) => StaggeredTile.fit(1),
                     ),
-                  );
-                },
-                staggeredTileBuilder: (index) => StaggeredTile.fit(1),
-              ),
+                  ),
+                )
+              ],
             ),
-          )
-        ],
-      ),
     );
   }
 }
