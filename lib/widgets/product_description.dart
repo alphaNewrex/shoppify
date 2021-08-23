@@ -37,6 +37,17 @@ class _ProductDescriptionState extends State<ProductDescription> {
               SizedBox(
                 height: 24,
               ),
+              Padding(
+                padding:
+                    const EdgeInsets.symmetric(vertical: 0.0, horizontal: 30.0),
+                child: Text(
+                  "\$${widget.product['title']}",
+                  style: TextStyle(fontSize: 20.0, fontWeight: FontWeight.w500),
+                ),
+              ),
+              SizedBox(
+                height: 24,
+              ),
               Text(
                 "\$${widget.product['price']}",
                 style: TextStyle(fontSize: 25.0, fontWeight: FontWeight.w500),

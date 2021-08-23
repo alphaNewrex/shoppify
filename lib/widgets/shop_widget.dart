@@ -104,7 +104,7 @@ class _ShopPageState extends State<ShopPage> {
               Navigator.pushNamed(
                 context,
                 '/cart',
-                arguments: cart,
+                arguments: {'items': cart},
               );
             },
             icon: FaIcon(
