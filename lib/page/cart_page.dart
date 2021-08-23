@@ -105,7 +105,7 @@ class _CartPageState extends State<CartPage> {
                                             width: 10,
                                           ),
                                           Text(
-                                            'Price : \$${(cart['items'][index].price) * (cart['items'][index].quantity)}',
+                                            'Price : \$${((cart['items'][index].price) * (cart['items'][index].quantity))}',
                                             style: TextStyle(
                                               fontSize: 12,
                                               color: Colors.grey[700],
